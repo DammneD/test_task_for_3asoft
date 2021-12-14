@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const App = () => {
-  const storage = JSON.parse(localStorage.getItem('images') || []);
+export const App = () => {
+  const storage = JSON.parse(localStorage.getItem('images') || '[]');
   const [tempStorage, setTempStorage] = useState(storage);
   const [onDelete, setOnDelete] = useState(0);
 
@@ -13,18 +13,18 @@ const App = () => {
 
     event.target.value = '';
 
-    reader.onload = (event) => {
+    reader.onload = (e) => {
       const image = {
         id: Math.random(),
         name: selectedItemName.slice(0, -4),
-        src: event.target.result,
+        src: e.target.result,
       };
 
       setTempStorage(state => {
-        state = [...state, image];
-        localStorage.setItem('images', JSON.stringify(state));
+        const temp = [...state, image];
+        localStorage.setItem('images', JSON.stringify(temp));
 
-        return state
+        return temp
       });
     };
   
@@ -32,19 +32,18 @@ const App = () => {
   }
   
   function onBtnDeleteClick(id) {
-    setOnDelete(id)
+    setOnDelete(id);
 
     setTimeout(() => {
       const newStorage = tempStorage.filter((element) => element.id !== +id);
       setTempStorage(newStorage);
-  
+
       localStorage.setItem('images', JSON.stringify(newStorage));
-    }, 400)
+    }, 400);
   }
 
   return (
     <div className="container">
-      {console.log(onDelete)}
       <label htmlFor="load-button" className="image-loader">
         Press or drag to load image:
         <input
@@ -55,7 +54,7 @@ const App = () => {
           onChange={loadButtonClick}
         />
       </label>
-      
+
       <div
         className="image-block"
       >
@@ -85,6 +84,3 @@ const App = () => {
     </div>
   );
 }
-
-export default App;
-
