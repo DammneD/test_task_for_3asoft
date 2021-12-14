@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/test_task_for_3asoft/static/css/main.c2040ad0.css",
-    "main.js": "/test_task_for_3asoft/static/js/main.c9d22092.js",
+    "main.js": "/test_task_for_3asoft/static/js/main.cc9e2020.js",
     "index.html": "/test_task_for_3asoft/index.html",
     "main.c2040ad0.css.map": "/test_task_for_3asoft/static/css/main.c2040ad0.css.map",
-    "main.c9d22092.js.map": "/test_task_for_3asoft/static/js/main.c9d22092.js.map"
+    "main.cc9e2020.js.map": "/test_task_for_3asoft/static/js/main.cc9e2020.js.map"
   },
   "entrypoints": [
     "static/css/main.c2040ad0.css",
-    "static/js/main.c9d22092.js"
+    "static/js/main.cc9e2020.js"
   ]
 }
