@@ -20,22 +20,24 @@ export const App = () => {
         src: e.target.result,
       };
 
-      setTempStorage(state => {
+      setTempStorage((state) => {
         const temp = [...state, image];
+
         localStorage.setItem('images', JSON.stringify(temp));
 
-        return temp
+        return temp;
       });
     };
-  
+
     reader.readAsDataURL(selectedItem);
   }
-  
+
   function onBtnDeleteClick(id) {
     setOnDelete(id);
 
     setTimeout(() => {
-      const newStorage = tempStorage.filter((element) => element.id !== +id);
+      const newStorage = tempStorage.filter(element => element.id !== +id);
+
       setTempStorage(newStorage);
 
       localStorage.setItem('images', JSON.stringify(newStorage));
@@ -60,27 +62,29 @@ export const App = () => {
       >
         {tempStorage.map((image) => {
           const isDeleted = onDelete === image.id;
+
           return (
             <div key={image.id} className="image-container">
               <img
                 src={image.src}
                 alt="something"
-                className='image'
+                className="image"
               />
               <span className={`image-name ${isDeleted && 'deleted'}`}>
                 {image.name}
               </span>
               <button
-                className='delete-button'
+                type="button"
+                className="delete-button"
                 onClick={() => onBtnDeleteClick(image.id)}
               >
                 Delete
               </button>
             </div>
-            )
-          }
-        )}
+          );
+        })}
       </div>
     </div>
   );
-}
+};
+
