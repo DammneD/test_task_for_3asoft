@@ -1,6 +1,6 @@
 # Test Task for 3asoft
 
-[Demo link <--](https://dammned.github.io/test_task_for_3asoft/)
+[Demo link <--](https://dammned.github.io/test_task_for_3asoft)
 
 ### `npm i`
 

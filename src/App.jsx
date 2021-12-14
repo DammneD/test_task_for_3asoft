@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 const App = () => {
-  const storage = JSON.parse(localStorage.getItem('images'));
+  const storage = JSON.parse(localStorage.getItem('images') || []);
   const [tempStorage, setTempStorage] = useState(storage);
   const [onDelete, setOnDelete] = useState(0);
 
